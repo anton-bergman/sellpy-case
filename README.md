@@ -577,7 +577,7 @@ The script will:
 
     </details>
 
-#### User-Item Similarity
+#### User-Item Similarity (recommended)
 
 1.  Ordered recommendations for user `00k2cfIsKw`:
 
