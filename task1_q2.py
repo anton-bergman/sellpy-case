@@ -1,6 +1,9 @@
 import pandas as pd
 
-def get_top_n_item_categories(user_item_interactions_csv_path, item_data_for_interactions_csv_path, top_n=3) -> list[tuple[str, int]]:
+
+def get_top_n_item_categories(
+    user_item_interactions_csv_path, item_data_for_interactions_csv_path, top_n=3
+) -> list[tuple[str, int]]:
     """
     Calculates the top N most popular item categories from user interactions.
 
@@ -21,7 +24,9 @@ def get_top_n_item_categories(user_item_interactions_csv_path, item_data_for_int
         return []
 
     # Inner join to get item categories
-    merged_df = pd.merge(user_item_interactions_df, item_data_df, on="item_objectid", how="inner")
+    merged_df = pd.merge(
+        user_item_interactions_df, item_data_df, on="item_objectid", how="inner"
+    )
 
     # Get top 3 categories
     category_counts = merged_df["category"].value_counts()
@@ -33,10 +38,12 @@ def get_top_n_item_categories(user_item_interactions_csv_path, item_data_for_int
 def main() -> None:
     user_item_interactions_path = "data/user_item_interactions.csv"
     item_data_for_interactions_path = "data/item_data_for_interactions.csv"
-    
-    category_interactions = get_top_n_item_categories(user_item_interactions_path, item_data_for_interactions_path, 3)
+
+    category_interactions = get_top_n_item_categories(
+        user_item_interactions_path, item_data_for_interactions_path, 3
+    )
     print(f"Category interactions: {category_interactions}")
-    
+
 
 if __name__ == "__main__":
     main()

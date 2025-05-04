@@ -28,7 +28,7 @@ def find_user_with_most_interactions(
         return None, 0
 
     # Count the number of interactions for each user
-    interaction_counts = filtered_interactions["user_objectid"].value_counts()
+    interaction_counts = filtered_interactions.loc[:, "user_objectid"].value_counts()
 
     # Find the user with the most interactions
     most_interacting_user = interaction_counts.idxmax()
